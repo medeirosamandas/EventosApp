@@ -28,6 +28,8 @@ public class DataConfiguration {
         adapter.setShowSql(true);
         adapter.setGenerateDdl(true);
         adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+        // Tem que descomentar a linha abaixo e comentar acima caso precise fazer alguma alteração no sql
+        //adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
         adapter.setPrepareConnection(true);
         return adapter;
     }
