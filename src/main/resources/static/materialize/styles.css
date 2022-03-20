@@ -3,3 +3,45 @@ text-align: center}
 
 th{
 text-transform: uppercase;}
+
+nav{
+padding-left: 100px;
+padding-right: 100px;
+margin-bottom: 80px;
+}
+
+#event-data{
+width: fit-content;
+margin: auto;
+font-size: 20px;}
+
+#event-data p{
+color: #cfd8dc;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+align-content: space-between;
+}
+
+#event-data span{
+color: white;
+font-weight: normal;}
+
+.card{
+border-radius: 20px;}
+
+.formConvidado{
+width: 60%}
+
+.tableConvidado{
+width: 40%}
+
+}
+.nomeConvidado{
+width: 70%}
+
+
+
+.divisor{
+display: flex;
+}

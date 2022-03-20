@@ -17,20 +17,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<h1 th:each="evento : ${evento}">Evento <span th:text="${evento.nome}"></span></h1>
 
-<h3>
-  <a href="/eventos" class="waves-effect waves-light btn" >
-  <i class="material-icons left">format_list_bulleted</i> Lista de Eventos
-  </a>
-</h3>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo" th:each="evento : ${evento}">
+      Detalhes do Evento
+      <!--<span th:text="${evento.nome}"></span>-->
+    </a>
+    <ul id="nav-mobile" class="right">
+      <li><a href="/eventos" class="waves-effect waves-light btn" >
+        <i class="material-icons left">format_list_bulleted</i> Lista de Eventos
+      </a></li>
+    </ul>
+  </div>
+</nav>
 
-<div th:each="evento : ${evento}" class="container">
-  <div class="row">
-    <p>Nome: <span th:text="${evento.nome}"></span></p>
-    <p>Local: <span th:text="${evento.local}"></span></p>
-    <p>Data: <span th:text="${evento.data}"></span></p>
-    <p>Horário: <span th:text="${evento.horario}"></span></p>
+
+<div th:each="evento : ${evento}" class="row centered">
+  <div class="s12 m6" id="event-data">
+    <div class="card blue darken-2 event-data">
+      <div class="card-content white-text event-data">
+        <p>Nome do Evento:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span th:text="${evento.nome}"></span></p>
+        <p>Local: <span th:text="${evento.local}"></span></p>
+        <p>Data: <span th:text="${evento.data}"></span></p>
+        <p>Horário: <span th:text="${evento.horario}"></span></p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -38,35 +50,32 @@
   <div th:replace="mensagemValidacao :: alert (type=${flashType}, message=${flashMessage})" class="centered"></div>
 </div>
 
-<form method="post" class="container ">
-  <div class="row centered">
-    <div class="input-field col s6">
-      Nome Convidado: <input type="text" value="" name="nomeConvidado"/></div>
+<form method="post" class="container centered">
+  <div class="row centered formConvidado">
+    Nome Convidado: <input type="text" value="" name="nomeConvidado"/>
 
-    <div class="input-field col s3">
-        RG: <input type="text" value="" name="rg"/></div>
+    RG: <input type="text" value="" name="rg"/></div>
 
 
 
-  </div>
 
-  <button type="submit" class="waves-effect waves-light btn" >Salvar</button>
+  <button type="submit" class="waves-effect waves-light btn right" >Salvar</button>
 
 
 </form>
-
+<br><br><br>
 <h3>Lista de Convidados</h3>
-<table class="highlight centered container" >
-  <thead>
+<table class="highlight centered container tableConvidado" >
+  <!--<thead>
   <tr>
     <th>Nome</th>
     <th>RG</th>
   </tr>
-  </thead>
+  </thead>-->
   <tbody>
   <tr th:each="convidado : ${convidados}">
-    <td><span th:text="${convidado.nomeConvidado}"></span></td>
-    <td><span th:text="${convidado.rg}"></span></td>
+    <td><span th:text="${convidado.nomeConvidado}" class="nomeConvidado"></span></td>
+    <td><span th:text="${convidado.rg}" class="rgConvidado"></span></td>
   </tr>
   </tbody>
 </table>
