@@ -34,6 +34,10 @@
   </div>
 </div>
 
+<div th:if="${flashMessage != null}" class="centered">
+  <div th:replace="mensagemValidacao :: alert (type=${flashType}, message=${flashMessage})" class="centered"></div>
+</div>
+
 <form method="post" class="container ">
   <div class="row centered">
     <div class="input-field col s6">

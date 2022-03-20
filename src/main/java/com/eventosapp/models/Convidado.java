@@ -1,13 +1,19 @@
 package com.eventosapp.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
+import com.sun.istack.NotNull;
+
 
 @Entity
 public class Convidado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;
+    @NotEmpty
     private String rg;
+    @NotEmpty
     private String nomeConvidado;
     @ManyToOne
     private Evento evento;
