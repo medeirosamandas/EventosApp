@@ -37,6 +37,24 @@ public class EventoController {
         er.save(evento);
         return "redirect:/cadastrarEvento";
     }
+    @RequestMapping("/deletar")
+    public String deletarEvento(Long codigo){
+        Evento evento = er.findByCodigo(codigo);
+        er.delete(evento);
+        return "redirect:/eventos";
+    }
+    @RequestMapping("/deletarConvidado")
+    public String deletarConvidado(Long codigo){
+        Convidado convidado = cr.findByCodigo(codigo);
+        cr.delete(convidado);
+        Evento evento = convidado.getEvento();
+        Long codigoAtual = evento.getCodigo();
+        String codigoString = "" + codigoAtual;
+        return "redirect:/" + codigoString;
+
+
+    }
+
     @RequestMapping(value="/eventos")
     public ModelAndView listaEventos(){
         ModelAndView mv = new ModelAndView("index");
