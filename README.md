@@ -12,4 +12,5 @@ O projeto é uma aplicação com o intuito de gerenciar eventos e seus convidado
   - Spring Web
   - Thymeleaf
     - Materialize Css
-- MySQL
+  - Spring Data JPA
+    - MySQL
